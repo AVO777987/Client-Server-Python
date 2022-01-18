@@ -1,0 +1,60 @@
+{
+    "orders": [
+        {
+            "item": "Samsung",
+            "quantity": 10,
+            "price": 30000,
+            "buyer": "Иванов Иван",
+            "date": "01.01.2022"
+        },
+        {
+            "item": "Apple",
+            "quantity": 12,
+            "price": 70000,
+            "buyer": "Петров Петр",
+            "date": "02.01.2022"
+        },
+        {
+            "item": "Huawey",
+            "quantity": 23,
+            "price": 13400,
+            "buyer": "Андреев Андрей",
+            "date": "03.01.2022"
+        },
+        {
+            "item": "Nokia",
+            "quantity": 24,
+            "price": 12500,
+            "buyer": "Васильев Василий",
+            "date": "04.01.2022"
+        },
+        {
+            "item": "Samsung",
+            "quantity": 10,
+            "price": 30000,
+            "buyer": "Иванов Иван",
+            "date": "01.01.2022"
+        },
+        {
+            "item": "Apple",
+            "quantity": 12,
+            "price": 70000,
+            "buyer": "Петров Петр",
+            "date": "02.01.2022"
+        },
+        {
+            "item": "Huawey",
+            "quantity": 23,
+            "price": 13400,
+            "buyer": "Андреев Андрей",
+            "date": "03.01.2022"
+        },
+        {
+            "item": "Nokia",
+            "quantity": 24,
+            "price": 12500,
+            "buyer": "Васильев Василий",
+            "date": "04.01.2022"
+        }
+    ]
+}
