@@ -11,7 +11,7 @@ def args_parser():
     return args
 
 
-def serv_sock(args):
+def server_socket(args):
     serv_sock = socket(AF_INET, SOCK_STREAM)
     serv_sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
     serv_sock.bind((args.addr, int(args.port)))
@@ -38,6 +38,7 @@ def send_and_get_msg(serv_sock):
                 }
             client_sock.send(json.dumps(response).encode('utf-8'))
             client_sock.close()
+            # return data
     finally:
         disconect(serv_sock)
 
@@ -48,5 +49,5 @@ def disconect(serv_sock):
 
 if __name__ == '__main__':
     args = args_parser()
-    serv_sock = serv_sock(args)
+    serv_sock = server_socket(args)
     send_and_get_msg(serv_sock)

@@ -43,6 +43,7 @@ def get_msg(client_sock):
         print(
             f'Error: {data.get("error")}'
         )
+    return data
 
 
 def disconnect(client_sock):
