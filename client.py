@@ -1,53 +1,62 @@
-"""
-1. Реализовать простое клиент-серверное взаимодействие по протоколу JIM (JSON instant messaging):клиент отправляет
-запрос серверу; сервер отвечает соответствующим кодом результата. Клиент и сервер должны быть реализованы в виде
-отдельных скриптов, содержащих соответствующие функции. Функции клиента: сформировать presence-сообщение; отправить
-сообщение серверу; получить ответ сервера; разобрать сообщение сервера; параметры командной строки скрипта
-client.py <addr> [<port>]: addr — ip-адрес сервера; port — tcp-порт на сервере, по умолчанию 7777.
-Функции сервера: принимает сообщение клиента; формирует ответ клиенту; отправляет ответ клиенту; имеет параметры
-командной строки: -p <port> — TCP-порт для работы (по умолчанию использует 7777); -a <addr> — IP-адрес для
-прослушивания (по умолчанию слушает все доступные адреса).
-"""
-
 from socket import socket, AF_INET, SOCK_STREAM
 import json
 from datetime import datetime
 import argparse
+from settings import DEFAULT_REMOTE_SERVER_IP, DEFAULT_REMOTE_SERVER_PORT, ENCODING, MAX_PACKAGE_LENGTH
+import logging
+import logs.config_client_log
+
+CLIENT_LOGGER = logging.getLogger('client')
 
 
 def args_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port', '-p', help='Server port', default=7777)
-    parser.add_argument('--addr', '-a', help='Server IP', default='127.0.0.1')
+    parser.add_argument('--port', '-p', help='Server port', default=DEFAULT_REMOTE_SERVER_PORT)
+    parser.add_argument('--addr', '-a', help='Server IP', default=DEFAULT_REMOTE_SERVER_IP)
     args = parser.parse_args()
     return args
 
 
 def connect(args):
     client_sock = socket(AF_INET, SOCK_STREAM)
-    client_sock.connect((args.addr, args.port))
+    try:
+        client_sock.connect((args.addr, args.port))
+        CLIENT_LOGGER.info(f'Запущен клиент с параметрами адресс: {args.addr}, порт: {args.port}')
+    except ConnectionRefusedError:
+        CLIENT_LOGGER.error(f'Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')
     return client_sock
 
 
 def send_msg(msg, client_sock):
-    client_sock.send(msg.encode('utf-8'))
+    try:
+        client_sock.send(msg.encode(ENCODING))
+        CLIENT_LOGGER.debug(f'Отправлено сообщение на сервер: {msg}')
+    except AttributeError:
+        CLIENT_LOGGER.error(f'Попытка отправить не JSON')
+    except:
+        CLIENT_LOGGER.error(f'Не удалось отправить сообщение на сервер!')
 
 
 def get_msg(client_sock):
-    data = json.loads(client_sock.recv(4096).decode('utf-8'))
-    if data.get('response') == 200:
-        print(
-            f'Response Message: {data.get("msg")}'
-        )
-    else:
-        print(
-            f'Error: {data.get("error")}'
-        )
-    return data
+    try:
+        data = json.loads(client_sock.recv(MAX_PACKAGE_LENGTH).decode('utf-8'))
+        CLIENT_LOGGER.debug(f'Получено сообщение с сервера: {data}')
+        if data.get('response') == 200:
+            print(
+                f'Response Message: {data.get("msg")}'
+            )
+        else:
+            print(
+                f'Error: {data.get("error")}'
+            )
+    except OSError:
+        CLIENT_LOGGER.error('Запрос на отправку или получение данных  (when sending on a datagram '
+                            'socket using a sendto call) no address was supplied')
 
 
 def disconnect(client_sock):
     client_sock.close()
+    CLIENT_LOGGER.info(f'Клиент разорвал подключение с сервером')
 
 
 if __name__ == '__main__':
@@ -73,6 +82,9 @@ if __name__ == '__main__':
             }
         }
     )
+
+    msg_no_json = {}
+
     args = args_parser()
     client_sock = connect(args)
     send_msg(msg_error, client_sock)
@@ -82,5 +94,7 @@ if __name__ == '__main__':
     send_msg(msg_presence, client_sock)
     get_msg(client_sock)
     disconnect(client_sock)
-
-
+    client_sock = connect(args)
+    send_msg(msg_no_json, client_sock)
+    get_msg(client_sock)
+    disconnect(client_sock)
