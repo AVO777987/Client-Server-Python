@@ -1,0 +1,10 @@
+2022-01-21 19:22:28,160 CRITICAL config_server_log.py Критическая ошибка
+2022-01-21 19:22:28,160 ERROR    config_server_log.py Ошибка
+2022-01-21 19:22:28,160 DEBUG    config_server_log.py Отладочная информация
+2022-01-21 19:22:28,160 INFO     config_server_log.py Информационное сообщение
+2022-01-21 19:23:03,657 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-21 19:30:12,583 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-21 19:30:18,943 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1642782618.931345, 'type': 'status', 'user': {'account_name': 'Client', 'status': 'Hello!'}}
+2022-01-21 19:30:18,944 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-21 19:30:18,945 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1642782618.931345, 'type': 'status', 'user': {'account_name': 'Client', 'status': 'Hello!'}}
+2022-01-21 19:30:18,945 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi Client'}
