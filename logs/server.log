@@ -8,3 +8,99 @@
 2022-01-21 19:30:18,944 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
 2022-01-21 19:30:18,945 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1642782618.931345, 'type': 'status', 'user': {'account_name': 'Client', 'status': 'Hello!'}}
 2022-01-21 19:30:18,945 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi Client'}
+2022-01-26 12:47:44,219 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 12:47:55,003 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643190474.981333, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 12:51:52,922 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 12:51:56,919 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643190716.919171, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 12:51:56,919 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 13:03:40,288 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643191420.287402, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 13:03:40,289 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 13:04:42,002 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643191482.002932, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 13:04:42,002 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 13:05:48,788 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643191548.788751, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:05:48,788 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:10:48,618 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643191848.618901, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:10:48,618 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:19:39,288 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:19:41,500 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:19:48,077 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192388.076756, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:19:48,077 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:21:10,692 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:21:19,845 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192479.845005, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:21:19,846 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:21:48,326 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:21:51,173 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:22:01,718 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192521.7184, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:22:01,718 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:24:35,202 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:24:43,607 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192683.607659, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:24:43,608 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:25:10,556 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:25:15,349 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192715.348475, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:25:15,349 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:26:14,905 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:26:17,997 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192777.997058, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:26:17,997 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:27:05,647 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192825.647784, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:27:05,648 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:29:05,338 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:29:52,207 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192992.20531, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:29:52,207 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:32:18,959 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:32:28,239 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193148.239235, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:32:28,239 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:34:08,107 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:34:11,115 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193251.115119, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:34:11,115 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:34:35,786 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193275.78653, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:34:35,787 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:36:41,912 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:36:48,263 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193408.262107, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:36:48,263 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:43:06,992 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
+2022-01-26 13:43:14,528 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193794.5282, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:43:14,529 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:43:39,281 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:43:45,376 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193825.375965, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:43:45,376 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:45:14,222 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:45:18,744 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193918.743305, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:48:29,547 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:48:33,772 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194113.77246, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:48:33,772 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
+2022-01-26 13:49:00,149 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194140.148969, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 13:49:00,149 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
+2022-01-26 13:49:00,151 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194140.150969, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:49:00,152 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
+2022-01-26 13:49:02,161 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194142.161084, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 13:49:02,162 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
+2022-01-26 13:49:02,163 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194142.163084, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:49:02,164 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
+2022-01-26 13:49:50,691 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:50:04,408 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194204.408644, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 13:50:04,408 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
+2022-01-26 13:50:04,410 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194204.410644, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:50:04,410 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
+2022-01-26 13:50:15,023 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:50:18,235 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194218.235435, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 13:50:18,235 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
+2022-01-26 13:50:18,237 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194218.237435, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:50:18,237 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
+2022-01-26 13:54:53,575 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
+2022-01-26 13:54:53,576 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:54:53,576 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(addr='127.0.0.1', port=7777),), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,807 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=252, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23303)>,), {}. Вызов из модуля utils
+2022-01-26 13:55:49,807 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194549.8074, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 13:55:49,808 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643194549.8074, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}},), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,808 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 200, "msg": "Hi client"}', <socket.socket fd=252, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23303)>), {}. Вызов из модуля utils
+2022-01-26 13:55:49,808 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
+2022-01-26 13:55:49,812 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=252, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23304)>,), {}. Вызов из модуля utils
+2022-01-26 13:55:49,812 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194549.8104, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:55:49,812 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'error', 'time': 1643194549.8104, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}},), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,813 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 400, "error": "Wrong action, try again"}', <socket.socket fd=252, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23304)>), {}. Вызов из модуля utils
+2022-01-26 13:55:49,813 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
+2022-01-26 14:00:22,753 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 14:00:36,625 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194836.624805, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 14:00:36,626 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
+2022-01-26 14:00:36,629 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194836.628805, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 14:00:36,629 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}

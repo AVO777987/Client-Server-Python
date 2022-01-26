@@ -1,7 +1,7 @@
 import logging
 # Настройки подключения
 DEFAULT_SERVER_LISTEN_PORT = 7777
-DEFAULT_SERVER_LISTEN_IP = ''
+DEFAULT_SERVER_LISTEN_IP = '127.0.0.1'
 DEFAULT_REMOTE_SERVER_PORT = 7777
 DEFAULT_REMOTE_SERVER_IP = '127.0.0.1'
 # Настройки взаимодействия
