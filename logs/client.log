@@ -78,3 +78,136 @@
 2022-01-21 19:30:18,945 INFO     client.py Клиент разорвал подключение с сервером
 2022-01-21 19:30:18,945 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
 2022-01-21 19:30:18,946 ERROR    client.py Попытка отправить не JSON
+2022-01-26 12:47:54,959 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 12:47:54,991 DEBUG    utils.py Отправлено сообщение на {"action": "presence", "time": 1643190474.981333, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 12:51:56,918 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 12:51:56,919 DEBUG    utils.py Отправлено сообщение на {"action": "presence", "time": 1643190716.919171, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 13:03:40,287 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:03:40,287 DEBUG    utils.py Отправлено сообщение на {"action": "presence", "time": 1643191420.287402, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 13:04:42,001 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:04:42,002 DEBUG    utils.py Отправлено сообщение на {"action": "presence", "time": 1643191482.002932, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 13:05:48,787 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:05:48,788 DEBUG    utils.py Отправлено сообщение на {"action": "error", "time": 1643191548.788751, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:10:48,617 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:10:48,618 DEBUG    utils.py Отправлено сообщение на {"action": "error", "time": 1643191848.618901, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:19:48,076 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:19:48,076 DEBUG    utils.py Отправлено сообщение на {"action": "error", "time": 1643192388.076756, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:21:19,845 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:21:19,845 DEBUG    utils.py Отправлено сообщение на {"action": "error", "time": 1643192479.845005, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:22:01,717 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:22:01,718 DEBUG    utils.py Отправлено сообщение на {"action": "error", "time": 1643192521.7184, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:24:43,607 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:24:43,607 DEBUG    utils.py Отправлено сообщение {"action": "error", "time": 1643192683.607659, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:25:15,348 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:25:15,348 DEBUG    utils.py Отправлено сообщение {"action": "error", "time": 1643192715.348475, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:26:17,996 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:26:17,997 DEBUG    utils.py Отправлено сообщение {"action": "error", "time": 1643192777.997058, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:27:05,646 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:27:05,648 DEBUG    utils.py Отправлено сообщение {"action": "error", "time": 1643192825.647784, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:29:42,280 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:29:52,207 DEBUG    utils.py Отправлено сообщение {"action": "error", "time": 1643192992.20531, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:32:28,238 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:32:28,239 DEBUG    utils.py Отправлено сообщение {"action": "error", "time": 1643193148.239235, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:34:11,115 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:34:11,115 DEBUG    utils.py Отправлено сообщение {"action": "error", "time": 1643193251.115119, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:34:35,786 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:34:35,786 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643193275.78653, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:36:48,262 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:36:48,263 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643193408.262107, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:43:14,528 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:43:14,528 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643193794.5282, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:43:45,375 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:43:45,376 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643193825.375965, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:45:18,743 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:45:18,743 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643193918.743305, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:48:33,771 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:48:33,772 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643194113.77246, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:48:33,772 DEBUG    utils.py Получено сообщение с сервера: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:48:33,773 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:49:00,148 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:49:00,149 DEBUG    utils.py Отправлено сообщение!!! {"action": "presence", "time": 1643194140.148969, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 13:49:00,149 DEBUG    utils.py Получено сообщение с сервера: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 13:49:00,149 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:49:00,150 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:49:00,150 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643194140.150969, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:49:00,152 DEBUG    utils.py Получено сообщение с сервера: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:49:00,152 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:49:02,161 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:49:02,161 DEBUG    utils.py Отправлено сообщение!!! {"action": "presence", "time": 1643194142.161084, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 13:49:02,162 DEBUG    utils.py Получено сообщение с сервера: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 13:49:02,162 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:49:02,163 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:49:02,163 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643194142.163084, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:49:02,164 DEBUG    utils.py Получено сообщение с сервера: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:49:02,164 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:50:04,407 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:50:04,408 DEBUG    utils.py Отправлено сообщение!!! {"action": "presence", "time": 1643194204.408644, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 13:50:04,408 DEBUG    utils.py Получено сообщение с сервера: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 13:50:04,409 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:50:04,410 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:50:04,410 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643194204.410644, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:50:04,410 DEBUG    utils.py Получено сообщение с сервера: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:50:04,410 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:50:18,235 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:50:18,235 DEBUG    utils.py Отправлено сообщение!!! {"action": "presence", "time": 1643194218.235435, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 13:50:18,236 DEBUG    utils.py Получено сообщение с сервера: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 13:50:18,236 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:50:18,237 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:50:18,237 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643194218.237435, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:50:18,237 DEBUG    utils.py Получено сообщение с сервера: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:50:18,237 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:55:49,805 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,806 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:55:49,806 DEBUG    log_decorator.py Была вызвана функция connect c параметрами (Namespace(addr='127.0.0.1', port=7777),), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,807 DEBUG    log_decorator.py Была вызвана функция create_messages c параметрами ('presence', 'client'), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,807 DEBUG    utils.py Отправлено сообщение!!! {"action": "presence", "time": 1643194549.8074, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 13:55:49,807 DEBUG    utils.py Получено сообщение с сервера: {'action': 'presence', 'time': 1643194549.8074, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 13:55:49,807 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"action": "presence", "time": 1643194549.8074, "type": "status", "user": "client", "text": {"status": "Hello!"}}', <socket.socket fd=248, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 23303), raddr=('127.0.0.1', 7777)>), {}. Вызов из модуля utils
+2022-01-26 13:55:49,808 DEBUG    utils.py Отправлено сообщение!!! {"response": 200, "msg": "Hi client"}
+2022-01-26 13:55:49,808 DEBUG    utils.py Получено сообщение с сервера: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 13:55:49,808 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=248, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 23303), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля utils
+2022-01-26 13:55:49,808 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:55:49,809 DEBUG    log_decorator.py Была вызвана функция disconnect c параметрами (<socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>,), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,809 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,810 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 13:55:49,810 DEBUG    log_decorator.py Была вызвана функция connect c параметрами (Namespace(addr='127.0.0.1', port=7777),), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,810 DEBUG    log_decorator.py Была вызвана функция create_messages c параметрами ('error', 'client'), {}. Вызов из модуля __main__
+2022-01-26 13:55:49,811 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643194549.8104, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 13:55:49,811 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"action": "error", "time": 1643194549.8104, "type": "status", "user": "client", "text": {"status": "Error!"}}', <socket.socket fd=248, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 23304), raddr=('127.0.0.1', 7777)>), {}. Вызов из модуля utils
+2022-01-26 13:55:49,811 DEBUG    utils.py Получено сообщение с сервера: {'action': 'error', 'time': 1643194549.8104, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 13:55:49,812 DEBUG    utils.py Отправлено сообщение!!! {"response": 400, "error": "Wrong action, try again"}
+2022-01-26 13:55:49,813 DEBUG    utils.py Получено сообщение с сервера: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 13:55:49,813 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=248, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 23304), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля utils
+2022-01-26 13:55:49,813 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 13:55:49,813 DEBUG    log_decorator.py Была вызвана функция disconnect c параметрами (<socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>,), {}. Вызов из модуля __main__
+2022-01-26 14:00:22,752 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
+2022-01-26 14:00:22,753 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(addr='127.0.0.1', port=7777),), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,623 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,624 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 14:00:36,624 DEBUG    log_decorator.py Была вызвана функция connect c параметрами (Namespace(addr='127.0.0.1', port=7777),), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,624 DEBUG    log_decorator.py Была вызвана функция create_messages c параметрами ('presence', 'client'), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,624 DEBUG    utils.py Отправлено сообщение!!! {"action": "presence", "time": 1643194836.624805, "type": "status", "user": "client", "text": {"status": "Hello!"}}
+2022-01-26 14:00:36,624 DEBUG    utils.py Получено сообщение с сервера: {'action': 'presence', 'time': 1643194836.624805, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
+2022-01-26 14:00:36,625 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"action": "presence", "time": 1643194836.624805, "type": "status", "user": "client", "text": {"status": "Hello!"}}', <socket.socket fd=248, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 23360), raddr=('127.0.0.1', 7777)>), {}. Вызов из модуля utils
+2022-01-26 14:00:36,625 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=180, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23360)>,), {}. Вызов из модуля utils
+2022-01-26 14:00:36,625 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643194836.624805, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}},), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,625 DEBUG    utils.py Отправлено сообщение!!! {"response": 200, "msg": "Hi client"}
+2022-01-26 14:00:36,626 DEBUG    utils.py Получено сообщение с сервера: {'response': 200, 'msg': 'Hi client'}
+2022-01-26 14:00:36,626 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 200, "msg": "Hi client"}', <socket.socket fd=180, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23360)>), {}. Вызов из модуля utils
+2022-01-26 14:00:36,626 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=248, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 23360), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля utils
+2022-01-26 14:00:36,626 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 14:00:36,626 DEBUG    log_decorator.py Была вызвана функция disconnect c параметрами (<socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>,), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,627 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,627 INFO     client.py Запущен клиент с параметрами адресс: 127.0.0.1, порт: 7777
+2022-01-26 14:00:36,628 DEBUG    log_decorator.py Была вызвана функция connect c параметрами (Namespace(addr='127.0.0.1', port=7777),), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,628 DEBUG    log_decorator.py Была вызвана функция create_messages c параметрами ('error', 'client'), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,628 DEBUG    utils.py Отправлено сообщение!!! {"action": "error", "time": 1643194836.628805, "type": "status", "user": "client", "text": {"status": "Error!"}}
+2022-01-26 14:00:36,628 DEBUG    utils.py Получено сообщение с сервера: {'action': 'error', 'time': 1643194836.628805, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
+2022-01-26 14:00:36,628 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"action": "error", "time": 1643194836.628805, "type": "status", "user": "client", "text": {"status": "Error!"}}', <socket.socket fd=248, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 23361), raddr=('127.0.0.1', 7777)>), {}. Вызов из модуля utils
+2022-01-26 14:00:36,628 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=180, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23361)>,), {}. Вызов из модуля utils
+2022-01-26 14:00:36,629 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'error', 'time': 1643194836.628805, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}},), {}. Вызов из модуля __main__
+2022-01-26 14:00:36,629 DEBUG    utils.py Получено сообщение с сервера: {'response': 400, 'error': 'Wrong action, try again'}
+2022-01-26 14:00:36,629 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 400, "error": "Wrong action, try again"}', <socket.socket fd=180, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23361)>), {}. Вызов из модуля utils
+2022-01-26 14:00:36,629 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=248, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 23361), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля utils
+2022-01-26 14:00:36,630 INFO     client.py Клиент разорвал подключение с сервером
+2022-01-26 14:00:36,630 DEBUG    log_decorator.py Была вызвана функция disconnect c параметрами (<socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>,), {}. Вызов из модуля __main__

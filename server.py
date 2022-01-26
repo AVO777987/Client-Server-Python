@@ -1,12 +1,17 @@
 import argparse
 from socket import socket, AF_INET, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
 import json
-from settings import DEFAULT_SERVER_LISTEN_IP, DEFAULT_SERVER_LISTEN_PORT, ENCODING, MAX_PACKAGE_LENGTH
 import logging
+
+from utils import get_msg, send_msg
+from settings import DEFAULT_SERVER_LISTEN_IP, DEFAULT_SERVER_LISTEN_PORT, ENCODING, MAX_PACKAGE_LENGTH
+from log_decorator import log
 import logs.config_server_log
 
 SERVER_LOGGER = logging.getLogger('server')
 
+
+@log
 def args_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', '-p', help='Listen port', default=DEFAULT_SERVER_LISTEN_PORT)
@@ -15,48 +20,56 @@ def args_parser():
     return args
 
 
+@log
 def server_socket(args):
-    serv_sock = socket(AF_INET, SOCK_STREAM)
-    serv_sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
+    server_sock = socket(AF_INET, SOCK_STREAM)
+    server_sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
     try:
-        serv_sock.bind((args.addr, int(args.port)))
-        serv_sock.listen(1)
+        server_sock.bind((args.addr, int(args.port)))
+        server_sock.listen(1)
         SERVER_LOGGER.info(f'Запущен сервер с параметрами адресс: {args.addr}, порт: {args.port}')
     except:
         SERVER_LOGGER.error(f'Не удалось запустить сервер с параметрами адресс: {args.addr}, порт: {args.port}')
-    return serv_sock
+    return server_sock
 
 
-def send_and_get_msg(serv_sock):
-    try:
-        while True:
-            client_sock, addr = serv_sock.accept()
-            data = client_sock.recv(MAX_PACKAGE_LENGTH)
-            request = json.loads(data.decode(ENCODING))
-            SERVER_LOGGER.debug(f'Получено сообщение от клиента: {request}')
-            if request.get('action') == 'presence':
-                response = {
-                    'response': 200,
-                    'msg': f'Hi {request.get("user")["account_name"]}'
-                }
-            else:
-                response = {
-                    'response': 400,
-                    'error': 'Wrong action, try again'
-                }
-            client_sock.send(json.dumps(response).encode(ENCODING))
-            SERVER_LOGGER.debug(f'Отправлен ответ клиенту: {response}')
-            client_sock.close()
-            # return data
-    finally:
-        disconect(serv_sock)
+@log
+def create_response(request):
+    if request.get('action') == 'presence':
+        response = json.dumps(
+            {
+                'response': 200,
+                'msg': f'Hi {request.get("user")}'
+            }
+        )
+    else:
+        response = json.dumps(
+            {
+                'response': 400,
+                'error': 'Wrong action, try again'
+            }
+        )
+    return response
 
-
+@log
 def disconect(serv_sock):
     serv_sock.close()
 
 
+def main():
+    server_sock = server_socket(args_parser())
+    try:
+        while True:
+            client_sock, addr = server_sock.accept()
+            request = get_msg(client_sock)
+            SERVER_LOGGER.debug(f'Получено сообщение от клиента: {request}')
+            response = create_response(request)
+            send_msg(response, client_sock)
+            SERVER_LOGGER.debug(f'Отправлен ответ клиенту: {response}')
+            client_sock.close()
+    finally:
+        disconect(server_sock)
+
+
 if __name__ == '__main__':
-    args = args_parser()
-    serv_sock = server_socket(args)
-    send_and_get_msg(serv_sock)
+    main()

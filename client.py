@@ -2,13 +2,17 @@ from socket import socket, AF_INET, SOCK_STREAM
 import json
 from datetime import datetime
 import argparse
-from settings import DEFAULT_REMOTE_SERVER_IP, DEFAULT_REMOTE_SERVER_PORT, ENCODING, MAX_PACKAGE_LENGTH
 import logging
+
+from settings import DEFAULT_REMOTE_SERVER_IP, DEFAULT_REMOTE_SERVER_PORT, ENCODING, MAX_PACKAGE_LENGTH
+from utils import send_msg, get_msg
+from log_decorator import log
 import logs.config_client_log
 
 CLIENT_LOGGER = logging.getLogger('client')
 
 
+@log
 def args_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', '-p', help='Server port', default=DEFAULT_REMOTE_SERVER_PORT)
@@ -17,6 +21,7 @@ def args_parser():
     return args
 
 
+@log
 def connect(args):
     client_sock = socket(AF_INET, SOCK_STREAM)
     try:
@@ -27,74 +32,51 @@ def connect(args):
     return client_sock
 
 
-def send_msg(msg, client_sock):
-    try:
-        client_sock.send(msg.encode(ENCODING))
-        CLIENT_LOGGER.debug(f'Отправлено сообщение на сервер: {msg}')
-    except AttributeError:
-        CLIENT_LOGGER.error(f'Попытка отправить не JSON')
-    except:
-        CLIENT_LOGGER.error(f'Не удалось отправить сообщение на сервер!')
-
-
-def get_msg(client_sock):
-    try:
-        data = json.loads(client_sock.recv(MAX_PACKAGE_LENGTH).decode('utf-8'))
-        CLIENT_LOGGER.debug(f'Получено сообщение с сервера: {data}')
-        if data.get('response') == 200:
-            print(
-                f'Response Message: {data.get("msg")}'
-            )
-        else:
-            print(
-                f'Error: {data.get("error")}'
-            )
-    except OSError:
-        CLIENT_LOGGER.error('Запрос на отправку или получение данных  (when sending on a datagram '
-                            'socket using a sendto call) no address was supplied')
-
-
+@log
 def disconnect(client_sock):
     client_sock.close()
     CLIENT_LOGGER.info(f'Клиент разорвал подключение с сервером')
 
 
+@log
+def create_messages(type_msg, user):
+    if type_msg == 'presence':
+        message = json.dumps(
+            {
+                'action': 'presence',
+                'time': datetime.now().timestamp(),
+                'type': 'status',
+                'user': user,
+                'text': {
+                    'status': 'Hello!',
+                }
+            }
+        )
+    if type_msg == 'error':
+        message = json.dumps(
+            {
+                'action': 'error',
+                'time': datetime.now().timestamp(),
+                'type': 'status',
+                'user': user,
+                'text': {
+                    'status': 'Error!'
+                }
+            }
+        )
+    return message
+
+
+def main():
+    client_sock = connect(args_parser())
+    send_msg(create_messages('presence', 'client'), client_sock)
+    data = get_msg(client_sock)
+    disconnect(client_sock)
+    client_sock = connect(args_parser())
+    send_msg(create_messages('error', 'client'), client_sock)
+    get_msg(client_sock)
+    disconnect(client_sock)
+
+
 if __name__ == '__main__':
-    msg_presence = json.dumps(
-        {
-            'action': 'presence',
-            'time': datetime.now().timestamp(),
-            'type': 'status',
-            'user': {
-                'account_name': 'Client',
-                'status': 'Hello!'
-            }
-        }
-    )
-    msg_error = json.dumps(
-        {
-            'action': 'error',
-            'time': datetime.now().timestamp(),
-            'type': 'status',
-            'user': {
-                'account_name': 'Client',
-                'status': 'Hello!'
-            }
-        }
-    )
-
-    msg_no_json = {}
-
-    args = args_parser()
-    client_sock = connect(args)
-    send_msg(msg_error, client_sock)
-    get_msg(client_sock)
-    disconnect(client_sock)
-    client_sock = connect(args)
-    send_msg(msg_presence, client_sock)
-    get_msg(client_sock)
-    disconnect(client_sock)
-    client_sock = connect(args)
-    send_msg(msg_no_json, client_sock)
-    get_msg(client_sock)
-    disconnect(client_sock)
+    main()
