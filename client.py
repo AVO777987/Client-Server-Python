@@ -53,14 +53,16 @@ def create_messages(type_msg, user='Guest'):
             }
         }
     if type_msg == 'message':
+        text = input('Введите сообщение для отправки или q для завершения работы: ')
+        if text == 'q':
+            CLIENT_LOGGER.info('Завершение работы по команде пользователя.')
+            sys.exit(0)
         message = {
             'action': 'message',
             'time': datetime.now().timestamp(),
             'type': 'status',
             'user': user,
-            'text': {
-                'status': 'Hello!',
-            }
+            'text': text
         }
     if type_msg == 'error':
         message = {
