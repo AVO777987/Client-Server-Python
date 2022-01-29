@@ -25,8 +25,8 @@ def server_socket(args):
     server_sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
     try:
         server_sock.bind((args.addr, int(args.port)))
-        server_sock.settimeout(0.5)
-        server_sock.listen(1)
+        server_sock.settimeout(2)
+        server_sock.listen(5)
         SERVER_LOGGER.info(f'Запущен сервер с параметрами адресс: {args.addr}, порт: {args.port}')
     except:
         SERVER_LOGGER.error(f'Не удалось запустить сервер с параметрами адресс: {args.addr}, порт: {args.port}')
@@ -50,7 +50,7 @@ def create_response(message, message_list, client_sock):
             'error': 'Wrong action, try again'
         }
         send_msg(response, client_sock)
-    return
+        return
 
 
 def disconect(serv_sock):
@@ -79,8 +79,13 @@ def main():
         except OSError:
             pass
         if recv_data_lst:
-            for client_socket in recv_data_lst:
-                create_response(get_msg(client_socket), messages, client_socket)
+            try:
+                for client_socket in recv_data_lst:
+                    create_response(get_msg(client_socket), messages, client_socket)
+            except:
+                SERVER_LOGGER.info(f'Клиент {client_socket.getpeername()} '
+                                   f'отключился от сервера.')
+                clients.remove(client_socket)
         if messages and send_data_lst:
             message = {
                 'action': 'message',
@@ -91,7 +96,7 @@ def main():
             del messages[0]
             for waiting_client in send_data_lst:
                 try:
-                    send_msg(waiting_client, message)
+                    send_msg(message, waiting_client)
                 except:
                     SERVER_LOGGER.info(f'Клиент {waiting_client.getpeername()} отключился от сервера.')
                     waiting_client.close()
