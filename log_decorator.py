@@ -1,7 +1,13 @@
 import logging
+import sys
+import logs.config_server_log
 import logs.config_client_log
 
-LOGGER = logging.getLogger('client')
+
+if sys.argv[0].find('client') == -1:
+    LOGGER = logging.getLogger('server')
+else:
+    LOGGER = logging.getLogger('client')
 
 
 def log(func_to_log):
