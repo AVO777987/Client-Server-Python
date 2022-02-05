@@ -1,9 +1,7 @@
 import argparse
 from socket import socket, AF_INET, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
-import json
 import logging
 import select
-from datetime import datetime
 from utils import get_msg, send_msg
 from settings import DEFAULT_SERVER_LISTEN_IP, DEFAULT_SERVER_LISTEN_PORT, ENCODING, MAX_PACKAGE_LENGTH
 from log_decorator import log
@@ -33,16 +31,29 @@ def server_socket(args):
     return server_sock
 
 
-def create_response(message, message_list, client_sock):
+def create_response(message, message_list, client_sock, clients, names):
     if message.get('action') == 'presence':
-        response = {
-            'response': 200,
-            'msg': f'Hi {message.get("user")}'
-        }
-        send_msg(response, client_sock)
+        if message.get('user') not in names.keys():
+            names[message.get('user')] = client_sock
+            response = {
+                'response': 200,
+                'msg': f'Hi {message.get("user")}'
+            }
+            send_msg(response, client_sock)
+        else:
+            response = {
+                'response': 400,
+                'msg': f'Имя {message.get("user")} уже занято.'
+            }
+            send_msg(response, client_sock)
         return
     if message.get('action') == 'message':
-        message_list.append((message.get('user'), message.get('text')))
+        message_list.append(message)
+        return
+    if message.get('action') == 'exit':
+        clients.remove(names[message.get('user')])
+        names[message.get('user')].close()
+        del names[message.get('user')]
         return
     else:
         response = {
@@ -53,14 +64,20 @@ def create_response(message, message_list, client_sock):
         return
 
 
-def disconect(serv_sock):
-    serv_sock.close()
+def send_message_from_user(message, names, listen_sock):
+    if message.get('destination') in names and names[message.get('destination')] in listen_sock:
+        send_msg(message, names[message.get('destination')])
+        SERVER_LOGGER.info(f"Сообщение {message}, отправлено пользователю {message.get('destination')}")
+    else:
+        SERVER_LOGGER.error(
+            f"Пользователь {message.get('destination')} не зарегистрирован на сервере, отправка сообщения невозможна.")
 
 
 def main():
     server_sock = server_socket(args_parser())
     clients = []
     messages = []
+    names = dict()
     while True:
         try:
             client_sock, addr = server_sock.accept()
@@ -81,26 +98,19 @@ def main():
         if recv_data_lst:
             try:
                 for client_socket in recv_data_lst:
-                    create_response(get_msg(client_socket), messages, client_socket)
+                    create_response(get_msg(client_socket), messages, client_socket, clients, names)
             except:
                 SERVER_LOGGER.info(f'Клиент {client_socket.getpeername()} '
                                    f'отключился от сервера.')
                 clients.remove(client_socket)
-        if messages and send_data_lst:
-            message = {
-                'action': 'message',
-                'time': datetime.now().timestamp(),
-                'sender': messages[0][0],
-                'text': messages[0][1]
-            }
-            del messages[0]
-            for waiting_client in send_data_lst:
-                try:
-                    send_msg(message, waiting_client)
-                except:
-                    SERVER_LOGGER.info(f'Клиент {waiting_client.getpeername()} отключился от сервера.')
-                    waiting_client.close()
-                    clients.remove(waiting_client)
+        for mes in messages:
+            try:
+                send_message_from_user(mes, names, send_data_lst)
+            except Exception:
+                SERVER_LOGGER.info(f"Связь с клиентом с именем {mes.get('destination')} была потеряна")
+                clients.remove(names[mes.get('destination')])
+                del names[mes.get('destination')]
+        messages.clear()
 
 
 if __name__ == '__main__':
