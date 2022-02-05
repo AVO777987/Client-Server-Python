@@ -1,276 +1,113 @@
-2022-01-21 19:22:28,160 CRITICAL config_server_log.py Критическая ошибка
-2022-01-21 19:22:28,160 ERROR    config_server_log.py Ошибка
-2022-01-21 19:22:28,160 DEBUG    config_server_log.py Отладочная информация
-2022-01-21 19:22:28,160 INFO     config_server_log.py Информационное сообщение
-2022-01-21 19:23:03,657 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-21 19:30:12,583 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-21 19:30:18,943 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1642782618.931345, 'type': 'status', 'user': {'account_name': 'Client', 'status': 'Hello!'}}
-2022-01-21 19:30:18,944 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-21 19:30:18,945 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1642782618.931345, 'type': 'status', 'user': {'account_name': 'Client', 'status': 'Hello!'}}
-2022-01-21 19:30:18,945 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi Client'}
-2022-01-26 12:47:44,219 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 12:47:55,003 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643190474.981333, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 12:51:52,922 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 12:51:56,919 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643190716.919171, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 12:51:56,919 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi client'}
-2022-01-26 13:03:40,288 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643191420.287402, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 13:03:40,289 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi client'}
-2022-01-26 13:04:42,002 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643191482.002932, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 13:04:42,002 DEBUG    server.py Отправлен ответ клиенту: {'response': 200, 'msg': 'Hi client'}
-2022-01-26 13:05:48,788 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643191548.788751, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:05:48,788 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:10:48,618 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643191848.618901, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:10:48,618 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:19:39,288 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:19:41,500 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:19:48,077 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192388.076756, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:19:48,077 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:21:10,692 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:21:19,845 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192479.845005, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:21:19,846 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:21:48,326 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:21:51,173 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:22:01,718 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192521.7184, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:22:01,718 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:24:35,202 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:24:43,607 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192683.607659, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:24:43,608 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:25:10,556 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:25:15,349 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192715.348475, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:25:15,349 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:26:14,905 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:26:17,997 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192777.997058, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:26:17,997 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:27:05,647 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192825.647784, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:27:05,648 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:29:05,338 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:29:52,207 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643192992.20531, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:29:52,207 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:32:18,959 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:32:28,239 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193148.239235, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:32:28,239 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:34:08,107 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:34:11,115 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193251.115119, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:34:11,115 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:34:35,786 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193275.78653, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:34:35,787 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:36:41,912 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-26 13:36:48,263 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193408.262107, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:36:48,263 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:43:06,992 INFO     server.py Запущен сервер с параметрами адресс: , порт: 7777
-2022-01-26 13:43:14,528 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193794.5282, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:43:14,529 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:43:39,281 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-26 13:43:45,376 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193825.375965, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:43:45,376 DEBUG    server.py Отправлен ответ клиенту: {'response': 400, 'error': 'Wrong action, try again'}
-2022-01-26 13:45:14,222 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-26 13:45:18,744 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643193918.743305, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:48:29,547 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-26 13:48:33,772 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194113.77246, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:48:33,772 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
-2022-01-26 13:49:00,149 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194140.148969, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 13:49:00,149 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
-2022-01-26 13:49:00,151 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194140.150969, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:49:00,152 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
-2022-01-26 13:49:02,161 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194142.161084, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 13:49:02,162 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
-2022-01-26 13:49:02,163 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194142.163084, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:49:02,164 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
-2022-01-26 13:49:50,691 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-26 13:50:04,408 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194204.408644, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 13:50:04,408 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
-2022-01-26 13:50:04,410 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194204.410644, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:50:04,410 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
-2022-01-26 13:50:15,023 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-26 13:50:18,235 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194218.235435, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 13:50:18,235 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
-2022-01-26 13:50:18,237 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194218.237435, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:50:18,237 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
-2022-01-26 13:54:53,575 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-26 13:54:53,576 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-26 13:54:53,576 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(addr='127.0.0.1', port=7777),), {}. Вызов из модуля __main__
-2022-01-26 13:55:49,807 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=252, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23303)>,), {}. Вызов из модуля utils
-2022-01-26 13:55:49,807 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194549.8074, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 13:55:49,808 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643194549.8074, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}},), {}. Вызов из модуля __main__
-2022-01-26 13:55:49,808 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 200, "msg": "Hi client"}', <socket.socket fd=252, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23303)>), {}. Вызов из модуля utils
-2022-01-26 13:55:49,808 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
-2022-01-26 13:55:49,812 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=252, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23304)>,), {}. Вызов из модуля utils
-2022-01-26 13:55:49,812 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194549.8104, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 13:55:49,812 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'error', 'time': 1643194549.8104, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}},), {}. Вызов из модуля __main__
-2022-01-26 13:55:49,813 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 400, "error": "Wrong action, try again"}', <socket.socket fd=252, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 23304)>), {}. Вызов из модуля utils
-2022-01-26 13:55:49,813 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
-2022-01-26 14:00:22,753 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-26 14:00:36,625 DEBUG    server.py Получено сообщение от клиента: {'action': 'presence', 'time': 1643194836.624805, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}
-2022-01-26 14:00:36,626 DEBUG    server.py Отправлен ответ клиенту: {"response": 200, "msg": "Hi client"}
-2022-01-26 14:00:36,629 DEBUG    server.py Получено сообщение от клиента: {'action': 'error', 'time': 1643194836.628805, 'type': 'status', 'user': 'client', 'text': {'status': 'Error!'}}
-2022-01-26 14:00:36,629 DEBUG    server.py Отправлен ответ клиенту: {"response": 400, "error": "Wrong action, try again"}
-2022-01-29 12:28:03,226 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 12:28:03,227 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 12:28:03,228 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 12:28:28,918 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 12:28:28,920 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 12:28:28,920 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 18:19:13,444 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 18:19:13,466 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 18:19:13,466 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 18:19:27,176 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 18:19:27,676 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=212, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 49945)>,), {}. Вызов из модуля utils
-2022-01-29 18:19:27,676 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 200, "msg": "Hi client"}', <socket.socket fd=212, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 49945)>), {}. Вызов из модуля utils
-2022-01-29 18:19:27,677 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643469567.176018, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}, [], <socket.socket fd=212, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 49945)>), {}. Вызов из модуля __main__
-2022-01-29 18:19:27,677 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 18:19:27,678 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 18:20:04,073 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 18:20:04,075 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 18:20:04,075 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 18:21:09,203 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 18:21:09,205 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 18:21:09,205 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 18:27:04,953 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 18:27:06,568 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 18:27:06,568 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 18:27:39,188 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 18:28:02,706 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=820, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50004)>,), {}. Вызов из модуля utils
-2022-01-29 18:28:02,709 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 200, "msg": "Hi client"}', <socket.socket fd=820, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50004)>), {}. Вызов из модуля utils
-2022-01-29 18:28:02,710 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643470037.553807, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}, [], <socket.socket fd=820, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50004)>), {}. Вызов из модуля __main__
-2022-01-29 18:28:09,417 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 18:30:40,972 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 18:30:40,973 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 18:30:40,974 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 18:31:22,061 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 18:31:30,612 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=1244, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50026)>,), {}. Вызов из модуля utils
-2022-01-29 18:31:30,614 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 200, "msg": "Hi {\'account_name\': \'Guest\'}"}', <socket.socket fd=1244, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50026)>), {}. Вызов из модуля utils
-2022-01-29 18:31:30,615 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643470265.6806998, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=1244, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50026)>), {}. Вызов из модуля __main__
-2022-01-29 18:31:31,082 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 18:34:17,700 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 18:34:17,701 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 18:34:17,702 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 18:35:21,578 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 18:35:34,013 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=1536, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50076)>,), {}. Вызов из модуля utils
-2022-01-29 18:35:34,016 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 200, "msg": "Hi client"}', <socket.socket fd=1536, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50076)>), {}. Вызов из модуля utils
-2022-01-29 18:35:34,016 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643470502.93623, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}, [], <socket.socket fd=1536, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50076)>), {}. Вызов из модуля __main__
-2022-01-29 18:35:35,107 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 18:56:54,092 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 18:56:54,093 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 18:56:54,094 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 18:57:20,423 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 18:57:26,407 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=868, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50224)>,), {}. Вызов из модуля utils
-2022-01-29 18:57:26,409 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ('{"response": 200, "msg": "Hi client"}', <socket.socket fd=868, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50224)>), {}. Вызов из модуля utils
-2022-01-29 18:57:26,410 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643471827.93768, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}, [], <socket.socket fd=868, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50224)>), {}. Вызов из модуля __main__
-2022-01-29 18:57:28,653 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 18:59:59,007 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 18:59:59,009 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 18:59:59,009 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 19:00:03,274 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:00:03,775 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=212, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50261)>,), {}. Вызов из модуля utils
-2022-01-29 19:00:03,775 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ({'response': 200, 'msg': 'Hi client'}, <socket.socket fd=212, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50261)>), {}. Вызов из модуля utils
-2022-01-29 19:00:03,776 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643472003.274727, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}, [], <socket.socket fd=212, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50261)>), {}. Вызов из модуля __main__
-2022-01-29 19:00:03,776 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:03:16,742 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 19:03:16,743 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:03:16,743 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 19:03:59,494 DEBUG    log_decorator.py Была вызвана функция args_parser c параметрами (), {}. Вызов из модуля __main__
-2022-01-29 19:03:59,495 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:03:59,496 DEBUG    log_decorator.py Была вызвана функция server_socket c параметрами (Namespace(port=7777, addr='127.0.0.1'),), {}. Вызов из модуля __main__
-2022-01-29 19:05:01,289 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:05:06,935 DEBUG    log_decorator.py Была вызвана функция get_msg c параметрами (<socket.socket fd=752, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50380)>,), {}. Вызов из модуля utils
-2022-01-29 19:05:06,937 DEBUG    log_decorator.py Была вызвана функция send_msg c параметрами ({'response': 200, 'msg': 'Hi client'}, <socket.socket fd=752, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50380)>), {}. Вызов из модуля utils
-2022-01-29 19:05:06,937 DEBUG    log_decorator.py Была вызвана функция create_response c параметрами ({'action': 'presence', 'time': 1643472291.746814, 'type': 'status', 'user': 'client', 'text': {'status': 'Hello!'}}, [], <socket.socket fd=752, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50380)>), {}. Вызов из модуля __main__
-2022-01-29 19:08:26,088 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:09:24,986 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:14:01,160 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:19,359 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:19:19,362 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:19,373 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:19,375 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:19,612 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:19,613 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:19,754 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:19,755 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:19,763 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:19,764 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:19,765 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:19,767 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:19,769 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:19,783 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:56,518 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:19:56,560 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:56,564 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:56,566 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:56,566 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:19:56,567 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:56,568 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:56,569 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:19:57,005 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:27:17,052 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:27:21,428 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:27:21,928 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:28:44,991 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:28:49,309 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:28:49,810 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:29:27,075 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:29:29,365 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:29:29,865 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:29:38,485 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:30:20,526 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:30:22,914 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:30:22,915 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:30:28,919 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:30:34,923 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:30:40,927 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:30:46,932 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:30:52,936 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:30:58,940 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:31:04,945 DEBUG    server.py Получено сообщение от клиента:
-2022-01-29 19:32:37,441 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:32:40,804 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:34:20,734 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:34:23,789 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:34:25,791 INFO     server.py Клиент ('127.0.0.1', 50760) отключился от сервера.
-2022-01-29 19:39:20,272 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:39:51,082 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:41:00,472 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:41:30,605 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:45:41,481 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:45:47,026 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:45:49,527 INFO     server.py Клиент ('127.0.0.1', 50886) отключился от сервера.
-2022-01-29 19:46:07,796 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:46:09,798 INFO     server.py Клиент ('127.0.0.1', 50897) отключился от сервера.
-2022-01-29 19:47:22,471 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:47:52,605 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:50:43,198 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:50:51,937 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 19:50:55,937 INFO     server.py Клиент ('127.0.0.1', 50951) отключился от сервера.
-2022-01-29 19:52:35,474 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 19:53:09,657 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:05:10,393 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:05:15,192 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:05:21,193 INFO     server.py Клиент ('127.0.0.1', 51041) отключился от сервера.
-2022-01-29 20:06:23,196 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:06:45,351 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:11:10,215 INFO     server.py Клиент ('127.0.0.1', 51076) отключился от сервера.
-2022-01-29 20:12:38,009 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:12:43,556 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:12:49,557 INFO     server.py Клиент ('127.0.0.1', 51103) отключился от сервера.
-2022-01-29 20:13:52,035 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:13:55,321 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:13:59,322 INFO     server.py Клиент ('127.0.0.1', 51107) отключился от сервера.
-2022-01-29 20:14:21,846 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:14:23,970 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:14:29,972 INFO     server.py Клиент ('127.0.0.1', 51112) отключился от сервера.
-2022-01-29 20:15:13,268 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:15:15,407 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:15:21,409 INFO     server.py Клиент ('127.0.0.1', 51119) отключился от сервера.
-2022-01-29 20:16:05,522 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:16:07,674 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:16:11,675 INFO     server.py Клиент ('127.0.0.1', 51123) отключился от сервера.
-2022-01-29 20:17:05,867 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:17:13,244 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:17:17,246 INFO     server.py Клиент ('127.0.0.1', 51131) отключился от сервера.
-2022-01-29 20:18:13,879 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:18:15,797 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:18:19,798 INFO     server.py Клиент ('127.0.0.1', 51134) отключился от сервера.
-2022-01-29 20:19:13,645 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:19:18,653 INFO     server.py Устанавливаем соединие с клиентом
-2022-01-29 20:19:36,658 INFO     server.py Клиент ('127.0.0.1', 51137) отключился от сервера.
-2022-01-29 20:25:35,352 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
-2022-01-29 20:25:38,102 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:23:19,904 INFO     server.py Клиент ('127.0.0.1', 54238) отключился от сервера.
+2022-02-05 17:23:21,906 INFO     server.py Клиент ('127.0.0.1', 54239) отключился от сервера.
+2022-02-05 17:24:08,611 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 17:24:08,627 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:24:08,653 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:24:08,654 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:24:08,704 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:24:10,704 INFO     server.py Клиент ('127.0.0.1', 54243) отключился от сервера.
+2022-02-05 17:24:12,704 INFO     server.py Клиент ('127.0.0.1', 54245) отключился от сервера.
+2022-02-05 17:25:24,717 INFO     server.py Клиент ('127.0.0.1', 54244) отключился от сервера.
+2022-02-05 17:25:26,718 INFO     server.py Клиент ('127.0.0.1', 54246) отключился от сервера.
+2022-02-05 17:39:53,354 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 17:39:53,360 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:39:53,805 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:39:53,845 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:39:53,846 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:43:20,643 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 17:43:46,860 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:43:46,873 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:43:46,882 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:43:46,894 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:45:57,065 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 17:46:07,268 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:46:07,273 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:46:07,282 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:46:07,287 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:49:51,297 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 17:49:51,319 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:49:51,333 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:49:51,398 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:49:51,778 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:50:19,785 INFO     server.py Связь с клиентом с именем test1 была потеряна
+2022-02-05 17:51:08,969 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 17:51:08,975 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:51:08,979 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:51:08,981 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:51:09,436 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:51:37,442 INFO     server.py Связь с клиентом с именем test1 была потеряна
+2022-02-05 17:52:01,447 INFO     server.py Связь с клиентом с именем test0 была потеряна
+2022-02-05 17:52:21,452 INFO     server.py Связь с клиентом с именем test2 была потеряна
+2022-02-05 17:52:51,458 INFO     server.py Клиент ('127.0.0.1', 54350) отключился от сервера.
+2022-02-05 17:54:25,461 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 17:54:29,276 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:54:44,931 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:55:14,936 INFO     server.py Связь с клиентом с именем test2 была потеряна
+2022-02-05 17:57:52,557 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:58:10,561 INFO     server.py Связь с клиентом с именем test2 была потеряна
+2022-02-05 17:58:41,066 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 17:58:43,295 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:58:45,323 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 17:58:55,325 INFO     server.py Связь с клиентом с именем test2 была потеряна
+2022-02-05 18:01:39,890 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 18:01:41,820 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:01:44,842 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:02:04,845 INFO     server.py Связь с клиентом с именем test2 была потеряна
+2022-02-05 18:02:48,440 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 18:02:53,622 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:02:56,986 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:04:29,792 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 18:04:32,167 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:04:35,489 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:04:45,491 INFO     server.py Связь с клиентом с именем test2 была потеряна
+2022-02-05 18:05:50,221 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 18:05:53,508 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:05:57,097 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:06:05,099 INFO     server.py Связь с клиентом с именем test2 была потеряна
+2022-02-05 18:06:56,724 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:06:56,759 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:06:56,763 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:06:56,773 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 18:06:56,781 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:07:22,786 INFO     server.py Связь с клиентом с именем test0 была потеряна
+2022-02-05 18:07:48,029 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 18:07:52,088 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:07:53,932 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:08:55,399 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:08:55,399 INFO     server.py Клиент ('127.0.0.1', 54422) отключился от сервера.
+2022-02-05 18:09:15,403 INFO     server.py Связь с клиентом с именем test2 была потеряна
+2022-02-05 18:39:52,255 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 18:39:52,264 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:39:52,279 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:39:52,307 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:39:52,720 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:42:36,751 INFO     server.py Связь с клиентом с именем test77 была потеряна
+2022-02-05 18:47:57,837 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 18:47:57,863 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:47:57,881 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:47:57,907 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:47:58,333 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 18:48:28,341 ERROR    server.py Пользователь test33 не зарегистрирован на сервере, отправка сообщения невозможна.
+2022-02-05 18:49:08,349 INFO     server.py Клиент ('127.0.0.1', 54531) отключился от сервера.
+2022-02-05 18:49:16,351 INFO     server.py Связь с клиентом с именем test0 была потеряна
+2022-02-05 19:50:16,058 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 19:50:56,225 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 19:50:56,262 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 19:50:56,268 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 19:50:56,272 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 19:50:56,717 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 19:51:36,727 INFO     server.py Сообщение {'action': 'message', 'time': 1644079895.536268, 'type': 'status', 'user': 'test2', 'destination': 'test1', 'text': 'Привет'}, отправлено пользователю test1
+2022-02-05 19:51:52,731 INFO     server.py Сообщение {'action': 'message', 'time': 1644079911.581927, 'type': 'status', 'user': 'test2', 'destination': 'test1', 'text': 'Poka'}, отправлено пользователю test1
+2022-02-05 19:52:22,738 INFO     server.py Сообщение {'action': 'message', 'time': 1644079942.072183, 'type': 'status', 'user': 'test2', 'destination': 'test0', 'text': 'asdasd'}, отправлено пользователю test0
+2022-02-05 19:52:52,743 ERROR    server.py Пользователь test4 не зарегистрирован на сервере, отправка сообщения невозможна.
+2022-02-05 19:53:14,749 INFO     server.py Сообщение {'action': 'message', 'time': 1644079993.759518, 'type': 'status', 'user': 'test0', 'destination': 'test2', 'text': 'asdasdasd'}, отправлено пользователю test2
+2022-02-05 19:53:38,754 INFO     server.py Клиент ('127.0.0.1', 55008) отключился от сервера.
+2022-02-05 19:53:40,755 INFO     server.py Клиент ('127.0.0.1', 55009) отключился от сервера.
+2022-02-05 19:54:20,463 INFO     server.py Запущен сервер с параметрами адресс: 127.0.0.1, порт: 7777
+2022-02-05 19:54:20,481 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 19:54:20,495 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 19:54:20,525 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 19:54:20,956 INFO     server.py Устанавливаем соединие с клиентом
+2022-02-05 19:54:26,959 INFO     server.py Клиент ('127.0.0.1', 55020) отключился от сервера.
+2022-02-05 19:55:50,974 ERROR    server.py Пользователь test3 не зарегистрирован на сервере, отправка сообщения невозможна.
+2022-02-05 19:56:12,979 INFO     server.py Сообщение {'action': 'message', 'time': 1644080171.896127, 'type': 'status', 'user': 'test2', 'destination': 'test1', 'text': 'asdasdasdasdasd'}, отправлено пользователю test1

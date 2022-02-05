@@ -7,7 +7,6 @@ from log_decorator import log
 CLIENT_LOGGER = logging.getLogger('client')
 
 
-
 def send_msg(msg, client_sock):
     try:
         msg = json.dumps(msg)
@@ -17,7 +16,6 @@ def send_msg(msg, client_sock):
         CLIENT_LOGGER.error(f'Попытка отправить не JSON')
     # except:
     #     CLIENT_LOGGER.error(f'Не удалось отправить сообщение на сервер!')
-
 
 
 def get_msg(client_sock):
