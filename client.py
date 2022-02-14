@@ -8,6 +8,7 @@ import threading
 from time import sleep
 from settings import DEFAULT_REMOTE_SERVER_IP, DEFAULT_REMOTE_SERVER_PORT, ENCODING, MAX_PACKAGE_LENGTH
 from utils import send_msg, get_msg
+from metaclasses import ClientVerifier
 from log_decorator import log
 import logs.config_client_log
 
@@ -79,44 +80,57 @@ def create_messages(type_msg, user):
     return message
 
 
-def get_msg_from_server(client_sock, client_name):
-    while True:
-        try:
-            message = get_msg(client_sock)
-            if message.get("action") == 'message' and message.get('destination') == client_name:
-                print(f'\nПолучено сообщение от пользователя {message.get("user")}:'
-                      f'\n{message.get("text")}')
-                CLIENT_LOGGER.info(f'Получено сообщение от пользователя {message.get("user")}:\n{message.get("text")}')
+class ClientReader(threading.Thread, metaclass=ClientVerifier):
+    def __init__(self, client_sock, client_name):
+        self.client_sock = client_sock
+        self.client_name = client_name
+        super().__init__()
+
+    def run(self):
+        while True:
+            try:
+                message = get_msg(self.client_sock)
+                if message.get("action") == 'message' and message.get('destination') == self.client_name:
+                    print(f'\nПолучено сообщение от пользователя {message.get("user")}:'
+                          f'\n{message.get("text")}')
+                    CLIENT_LOGGER.info(
+                        f'Получено сообщение от пользователя {message.get("user")}:\n{message.get("text")}')
+                else:
+                    CLIENT_LOGGER.error(f'Получено некорректное сообщение с сервера: {message}')
+            except (OSError, ConnectionError, ConnectionAbortedError,
+                    ConnectionResetError, json.JSONDecodeError):
+                CLIENT_LOGGER.critical(f'Потеряно соединение с сервером.')
+                break
+
+
+class ClientSender(threading.Thread, metaclass=ClientVerifier):
+    def __init__(self, client_sock, client_name):
+        self.client_sock = client_sock
+        self.client_name = client_name
+        super().__init__()
+
+    def run(self):
+        print('Поддерживаемые команды:')
+        print('message - отправить сообщение. Кому и текст будет запрошены отдельно.')
+        print('help - вывести подсказки по командам')
+        print('exit - выход из программы')
+        while True:
+            command = input('Введите команду: ')
+            if command == 'message':
+                send_msg(create_messages('message', self.client_name), self.client_sock)
+            elif command == 'help':
+                print('Поддерживаемые команды:')
+                print('message - отправить сообщение. Кому и текст будет запрошены отдельно.')
+                print('help - вывести подсказки по командам')
+                print('exit - выход из программы')
+            elif command == 'exit':
+                send_msg(create_messages('exit', self.client_name), self.client_sock)
+                print('Завершение соединения.')
+                CLIENT_LOGGER.info('Завершение работы по команде пользователя.')
+                sleep(0.5)
+                break
             else:
-                CLIENT_LOGGER.error(f'Получено некорректное сообщение с сервера: {message}')
-        except (OSError, ConnectionError, ConnectionAbortedError,
-                ConnectionResetError, json.JSONDecodeError):
-            CLIENT_LOGGER.critical(f'Потеряно соединение с сервером.')
-            break
-
-
-def create_menu(client_sock, client_name):
-    print('Поддерживаемые команды:')
-    print('message - отправить сообщение. Кому и текст будет запрошены отдельно.')
-    print('help - вывести подсказки по командам')
-    print('exit - выход из программы')
-    while True:
-        command = input('Введите команду: ')
-        if command == 'message':
-            send_msg(create_messages('message', client_name), client_sock)
-        elif command == 'help':
-            print('Поддерживаемые команды:')
-            print('message - отправить сообщение. Кому и текст будет запрошены отдельно.')
-            print('help - вывести подсказки по командам')
-            print('exit - выход из программы')
-        elif command == 'exit':
-            send_msg(create_messages('exit', client_name), client_sock)
-            print('Завершение соединения.')
-            CLIENT_LOGGER.info('Завершение работы по команде пользователя.')
-            sleep(0.5)
-            break
-        else:
-            print('Команда не распознана, попробойте снова. help - вывести поддерживаемые команды.')
+                print('Команда не распознана, попробойте снова. help - вывести поддерживаемые команды.')
 
 
 def main():
@@ -135,11 +149,11 @@ def main():
             f'Не удалось подключиться к серверу,конечный компьютер отверг запрос на подключение.')
         sys.exit(1)
     else:
-        receiver = threading.Thread(target=get_msg_from_server, args=(client_sock, client_name))
+        receiver = ClientReader(client_sock, client_name)
         receiver.daemon = True
         receiver.start()
 
-        user_interface = threading.Thread(target=create_menu, args=(client_sock, client_name))
+        user_interface = ClientSender(client_sock, client_name)
         user_interface.daemon = True
         user_interface.start()
         CLIENT_LOGGER.debug('Запущены процессы')
