@@ -27,7 +27,7 @@ class Server(metaclass=ServerVerifier):
 
     def __init__(self, listen_address, listen_port):
         self.listen_address = listen_address
-        self.listen_port = 7777
+        self.listen_port = listen_port
         self.clients = []
         self.message_list = []
         self.names = dict()
