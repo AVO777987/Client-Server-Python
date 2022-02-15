@@ -19,7 +19,7 @@ import re
 
 def write_to_csv(file):
     main_data = get_data(['info_1.txt', 'info_2.txt', 'info_3.txt'])
-    with open(file, 'w') as file:
+    with open(file, 'w', encoding='utf-8') as file:
         fn_writer = csv.writer(file)
         for row in main_data:
             fn_writer.writerow(row)
