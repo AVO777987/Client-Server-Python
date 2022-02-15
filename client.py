@@ -37,7 +37,7 @@ def get_msg(client_sock):
     data = json.loads(client_sock.recv(4096).decode('utf-8'))
     if data.get('response') == 200:
         print(
-            f'Response Message: {data.get("msg")}'
+            f'Response Message: {data.get("response"), data.get("msg")}'
         )
     else:
         print(
@@ -73,10 +73,6 @@ if __name__ == '__main__':
         }
     )
     args = args_parser()
-    client_sock = connect(args)
-    send_msg(msg_error, client_sock)
-    get_msg(client_sock)
-    disconnect(client_sock)
     client_sock = connect(args)
     send_msg(msg_presence, client_sock)
     get_msg(client_sock)
