@@ -4,8 +4,10 @@ import logging
 import select
 from utils import get_msg, send_msg
 from settings import DEFAULT_SERVER_LISTEN_IP, DEFAULT_SERVER_LISTEN_PORT, ENCODING, MAX_PACKAGE_LENGTH
+import threading
 from metaclasses import ServerVerifier
 from descrptrs import Port
+from server_database import ServerDB
 from log_decorator import log
 import logs.config_server_log
 
@@ -22,15 +24,17 @@ def args_parser():
     return listen_address, listen_port
 
 
-class Server(metaclass=ServerVerifier):
+class Server(threading.Thread, metaclass=ServerVerifier):
     listen_port = Port()
 
-    def __init__(self, listen_address, listen_port):
+    def __init__(self, listen_address, listen_port, database):
         self.listen_address = listen_address
         self.listen_port = listen_port
+        self.database = database
         self.clients = []
         self.message_list = []
         self.names = dict()
+        super().__init__()
 
     def server_socket(self):
         server_sock = socket(AF_INET, SOCK_STREAM)
@@ -90,6 +94,8 @@ class Server(metaclass=ServerVerifier):
                     'response': 200,
                     'msg': f'Hi {message.get("user")}'
                 }
+                client_ip, client_port = client_sock.getpeername()
+                self.database.user_login(message.get('user'), client_ip, client_port)
                 send_msg(response, client_sock)
             else:
                 response = {
@@ -102,6 +108,7 @@ class Server(metaclass=ServerVerifier):
             self.message_list.append(message)
             return
         if message.get('action') == 'exit':
+            self.database.user_logout(message.get('user'))
             self.clients.remove(self.names[message.get('user')])
             self.names[message.get('user')].close()
             del self.names[message.get('user')]
@@ -123,11 +130,41 @@ class Server(metaclass=ServerVerifier):
                 f"Пользователь {message.get('destination')} не зарегистрирован на сервере, отправка сообщения невозможна.")
 
 
+def print_help():
+    print('Поддерживаемые комманды:')
+    print('users - список известных пользователей')
+    print('connected - список подключённых пользователей')
+    print('loghist - история входов пользователя')
+    print('exit - завершение работы сервера.')
+    print('help - вывод справки по поддерживаемым командам')
+
+
 def main():
     listen_address, listen_port = args_parser()
-    # Создание экземпляра класса - сервера.
-    server = Server(listen_address, listen_port)
-    server.run()
+    database = ServerDB()
+    server = Server(listen_address, listen_port, database)
+    server.daemon = True
+    server.start()
+    print_help()
+    while True:
+        command = input('Введите команду: ')
+        if command == 'help':
+            print_help()
+        elif command == 'exit':
+            break
+        elif command == 'users':
+            for user in sorted(database.users_list()):
+                print(f'Пользователь {user[0]}, последний вход: {user[1]}')
+        elif command == 'connected':
+            for user in sorted(database.active_users_list()):
+                print(f'Пользователь {user[0]}, подключен: {user[1]}:{user[2]}, время установки соединения: {user[3]}')
+        elif command == 'loghist':
+            name = input('Введите имя пользователя для просмотра истории. '
+                         'Для вывода всей истории, просто нажмите Enter: ')
+            for user in sorted(database.login_history(name)):
+                print(f'Пользователь: {user[0]} время входа: {user[1]}. Вход с: {user[2]}:{user[3]}')
+        else:
+            print('Команда не распознана.')
 
 
 if __name__ == '__main__':

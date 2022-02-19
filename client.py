@@ -109,25 +109,26 @@ class ClientSender(threading.Thread, metaclass=ClientVerifier):
         self.client_name = client_name
         super().__init__()
 
-    def run(self):
+    @staticmethod
+    def print_help():
         print('Поддерживаемые команды:')
         print('message - отправить сообщение. Кому и текст будет запрошены отдельно.')
         print('help - вывести подсказки по командам')
         print('exit - выход из программы')
+
+    def run(self):
+        self.print_help()
         while True:
             command = input('Введите команду: ')
             if command == 'message':
                 send_msg(create_messages('message', self.client_name), self.client_sock)
             elif command == 'help':
-                print('Поддерживаемые команды:')
-                print('message - отправить сообщение. Кому и текст будет запрошены отдельно.')
-                print('help - вывести подсказки по командам')
-                print('exit - выход из программы')
+                self.print_help()
             elif command == 'exit':
                 send_msg(create_messages('exit', self.client_name), self.client_sock)
                 print('Завершение соединения.')
                 CLIENT_LOGGER.info('Завершение работы по команде пользователя.')
-                sleep(0.5)
+                sleep(2)
                 break
             else:
                 print('Команда не распознана, попробойте снова. help - вывести поддерживаемые команды.')
