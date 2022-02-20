@@ -61,20 +61,27 @@ class Server(threading.Thread, metaclass=ServerVerifier):
                 self.clients.append(client_sock)
 
             recv_data_lst = []
+
             send_data_lst = []
             err_list = []
             try:
                 if self.clients:
                     recv_data_lst, send_data_lst, err_lst = select.select(self.clients, self.clients, [], 0)
+                    print(recv_data_lst)
             except OSError:
                 pass
             if recv_data_lst:
-                try:
-                    for client_socket in recv_data_lst:
+                for client_socket in recv_data_lst:
+                    try:
                         self.create_response(get_msg(client_socket), client_socket)
-                except:
-                    SERVER_LOGGER.info(f'Клиент {client_socket.getpeername()} '
-                                       f'отключился от сервера.')
+                    except:
+                        SERVER_LOGGER.info(f'Клиент {client_socket.getpeername()} '
+                                           f'отключился от сервера.')
+                        for name in self.names:
+                            if self.names[name] == client_socket:
+                                self.database.user_logout(name)
+                                del self.names[name]
+                                break
                     self.clients.remove(client_socket)
             for mes in self.message_list:
                 try:
@@ -113,6 +120,32 @@ class Server(threading.Thread, metaclass=ServerVerifier):
             self.names[message.get('user')].close()
             del self.names[message.get('user')]
             return
+        if message.get('action') == 'get_contacts':
+            contact_list = self.database.get_contacts(message.get('user'))
+            response = {
+                'response': 202,
+                'contact_list': contact_list
+            }
+            send_msg(response, client_sock)
+        if message.get('action') == 'add_contact':
+            self.database.add_contact(message.get('user'), message.get('contact'))
+            response = {
+                'response': 200,
+            }
+            send_msg(response, client_sock)
+        if message.get('action') == 'del_contact':
+            self.database.remove_contact(message.get('user'), message.get('contact'))
+            response = {
+                'response': 200,
+            }
+            send_msg(response, client_sock)
+        if message.get('action') == 'user_list':
+            user_list = [user[0] for user in self.database.users_list()]
+            response = {
+                'response': 200,
+                'user_list': user_list,
+            }
+            send_msg(response, client_sock)
         else:
             response = {
                 'response': 400,
