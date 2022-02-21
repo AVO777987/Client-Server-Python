@@ -31,6 +31,9 @@ class ClientReader(threading.Thread, metaclass=ClientVerifier):
             with sock_lock:
                 try:
                     message = get_msg(self.client_sock)
+                except(OSError, ConnectionError, ConnectionAbortedError, ConnectionResetError, json.JSONDecodeError):
+                    CLIENT_LOGGER.critical(f'Потеряно соединение с сервером.')
+                else:
                     if message.get("action") == 'message' and message.get('destination') == self.client_name:
                         print(f'\nПолучено сообщение от пользователя {message.get("user")}:'f'\n{message.get("text")}')
                         CLIENT_LOGGER.info(
@@ -43,8 +46,6 @@ class ClientReader(threading.Thread, metaclass=ClientVerifier):
                                 CLIENT_LOGGER.error('Ошибка взаимодействия с базой данных')
                     else:
                         CLIENT_LOGGER.error(f'Получено некорректное сообщение с сервера: {message}')
-                except(OSError, ConnectionError, ConnectionAbortedError, ConnectionResetError, json.JSONDecodeError):
-                    CLIENT_LOGGER.critical(f'Потеряно соединение с сервером.')
 
 
 class ClientSender(threading.Thread, metaclass=ClientVerifier):
@@ -77,7 +78,7 @@ class ClientSender(threading.Thread, metaclass=ClientVerifier):
 
         with database_lock:
             try:
-                self.database.save_message(self.client_name, to_user, message)
+                self.database.save_message(self.client_name, to_user, message.get('text'))
             except Exception as e:
                 print(e)
                 CLIENT_LOGGER.error('Ошибка взаимодействия с базой данных')
@@ -132,19 +133,20 @@ class ClientSender(threading.Thread, metaclass=ClientVerifier):
                     'user': self.client_name,
                     'contact': contact
                 }
-                with sock_lock:
-                    try:
-                        send_msg(message, self.client_sock)
-                        answer = get_msg(self.client_sock)
-                        if 'response' in answer and answer.get('response') == 200:
-                            print(f'Контакт {contact} удален из списка контактов')
-                            CLIENT_LOGGER.debug(f'Контакт {contact} удален из списка контактов')
-                        else:
-                            CLIENT_LOGGER.error('Ошибка удаления контакта')
-                    except:
-                        CLIENT_LOGGER.error('Не удалось отправить информацию на сервер.')
+            with sock_lock:
+                try:
+                    send_msg(message, self.client_sock)
+                    answer = get_msg(self.client_sock)
+                    if 'response' in answer and answer.get('response') == 200:
+                        print(f'Контакт {contact} удален из списка контактов')
+                        CLIENT_LOGGER.debug(f'Контакт {contact} удален из списка контактов')
+                    else:
+                        CLIENT_LOGGER.error('Ошибка удаления контакта')
+                except:
+                    CLIENT_LOGGER.error('Не удалось отправить информацию на сервер.')
         elif command == 'add':
             contact = input('Введите имя создаваемого контакта: ')
+            print(self.database.check_user(contact))
             if self.database.check_user(contact):
                 with database_lock:
                     self.database.add_contact(contact)
@@ -268,7 +270,8 @@ def get_contacts_list(client_name, client_sock, database):
     answer = get_msg(client_sock)
     CLIENT_LOGGER.debug(f'Получен ответ {answer}')
     if 'response' in answer and answer.get('response') == 202:
-        database.add_contact(answer.get('contact_list'))
+        for contact in answer.get('contact_list'):
+            database.add_contact(contact)
     else:
         CLIENT_LOGGER.error(
             f'Не удалось подключиться к серверу,конечный компьютер отверг запрос на подключение.')

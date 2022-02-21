@@ -61,13 +61,11 @@ class Server(threading.Thread, metaclass=ServerVerifier):
                 self.clients.append(client_sock)
 
             recv_data_lst = []
-
             send_data_lst = []
             err_list = []
             try:
                 if self.clients:
                     recv_data_lst, send_data_lst, err_lst = select.select(self.clients, self.clients, [], 0)
-                    print(recv_data_lst)
             except OSError:
                 pass
             if recv_data_lst:
@@ -82,7 +80,7 @@ class Server(threading.Thread, metaclass=ServerVerifier):
                                 self.database.user_logout(name)
                                 del self.names[name]
                                 break
-                    self.clients.remove(client_socket)
+                        self.clients.remove(client_socket)
             for mes in self.message_list:
                 try:
                     self.send_message_from_user(mes, send_data_lst)
@@ -94,6 +92,7 @@ class Server(threading.Thread, metaclass=ServerVerifier):
             self.message_list.clear()
 
     def create_response(self, message, client_sock):
+        print(message)
         if message.get('action') == 'presence':
             if message.get('user') not in self.names.keys():
                 self.names[message.get('user')] = client_sock
@@ -111,35 +110,35 @@ class Server(threading.Thread, metaclass=ServerVerifier):
                 }
                 send_msg(response, client_sock)
             return
-        if message.get('action') == 'message':
+        elif message.get('action') == 'message':
             self.message_list.append(message)
             return
-        if message.get('action') == 'exit':
+        elif message.get('action') == 'exit':
             self.database.user_logout(message.get('user'))
             self.clients.remove(self.names[message.get('user')])
             self.names[message.get('user')].close()
             del self.names[message.get('user')]
             return
-        if message.get('action') == 'get_contacts':
+        elif message.get('action') == 'get_contacts':
             contact_list = self.database.get_contacts(message.get('user'))
             response = {
                 'response': 202,
                 'contact_list': contact_list
             }
             send_msg(response, client_sock)
-        if message.get('action') == 'add_contact':
+        elif message.get('action') == 'add_contact':
             self.database.add_contact(message.get('user'), message.get('contact'))
             response = {
                 'response': 200,
             }
             send_msg(response, client_sock)
-        if message.get('action') == 'del_contact':
+        elif message.get('action') == 'del_contact':
             self.database.remove_contact(message.get('user'), message.get('contact'))
             response = {
                 'response': 200,
             }
             send_msg(response, client_sock)
-        if message.get('action') == 'user_list':
+        elif message.get('action') == 'user_list':
             user_list = [user[0] for user in self.database.users_list()]
             response = {
                 'response': 200,

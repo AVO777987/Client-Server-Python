@@ -23,7 +23,6 @@ def get_msg(client_sock):
         encoded_response = client_sock.recv(MAX_PACKAGE_LENGTH)
         decode_response = encoded_response.decode(ENCODING)
         data = json.loads(decode_response)
-        print(f'Получено сообщение {data}')
     except OSError:
         CLIENT_LOGGER.error('Запрос на отправку или получение данных  (when sending on a datagram '
                             'socket using a sendto call) no address was supplied')
