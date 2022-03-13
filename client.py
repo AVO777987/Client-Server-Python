@@ -18,6 +18,7 @@ CLIENT_LOGGER = logging.getLogger('client')
 sock_lock = threading.Lock()
 database_lock = threading.Lock()
 
+
 class ClientReader(threading.Thread, metaclass=ClientVerifier):
     def __init__(self, client_name, client_sock, database):
         self.client_sock = client_sock
@@ -84,7 +85,7 @@ class ClientSender(threading.Thread, metaclass=ClientVerifier):
                 CLIENT_LOGGER.error('Ошибка взаимодействия с базой данных')
                 return
 
-        with sock_lock:
+            # with sock_lock:
             try:
                 send_msg(message, self.client_sock)
                 CLIENT_LOGGER.info(f'Отправлено сообщение для пользователя {to_user}')
@@ -101,15 +102,15 @@ class ClientSender(threading.Thread, metaclass=ClientVerifier):
             'time': time(),
             'user': self.client_name,
         }
-        with sock_lock:
-            try:
-                send_msg(message, self.client_sock)
-                CLIENT_LOGGER.info(f'Завершение соединения')
-                print('Завершение соединения.')
-            except Exception as error:
-                CLIENT_LOGGER.error(error)
-            sleep(2)
-            disconnect(self.client_sock)
+        # with sock_lock:
+        try:
+            send_msg(message, self.client_sock)
+            CLIENT_LOGGER.info(f'Завершение соединения')
+            print('Завершение соединения.')
+        except Exception as error:
+            CLIENT_LOGGER.error(error)
+        sleep(2)
+        disconnect(self.client_sock)
 
     def get_contacts(self):
         with database_lock:
@@ -214,6 +215,7 @@ class ClientSender(threading.Thread, metaclass=ClientVerifier):
                 break
             else:
                 print('Команда не распознана, попробойте снова. help - вывести поддерживаемые команды.')
+
 
 def args_parser():
     parser = argparse.ArgumentParser()

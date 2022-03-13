@@ -68,8 +68,9 @@ class ServerDB:
             self.sent = 0
             self.accepted = 0
 
-    def __init__(self):
-        self.engine = create_engine('sqlite:///server_db.db3', echo=False, pool_recycle=7200)
+    def __init__(self, path):
+        self.engine = create_engine(f'sqlite:///{path}', echo=False, pool_recycle=7200,
+                                    connect_args={'check_same_thread': False})
 
         self.Base.metadata.create_all(self.engine)
 
@@ -189,18 +190,18 @@ class ServerDB:
 
 
 if __name__ == '__main__':
-    test_db = ServerDB()
+    test_db = ServerDB('server_db.db3')
     test_db.user_login('test1', '192.168.1.113', 8080)
     test_db.user_login('test2', '192.168.1.113', 8081)
     # test_db.users_list()
     for user in sorted(test_db.users_list()):
         print(f'Пользователь {user[0]}, последний вход: {user[1]}')
-    # # print(test_db.active_users_list())
-    # test_db.user_logout('McG2')
-    # # print(test_db.login_history('re'))
-    # test_db.add_contact('test2', 'test1')
-    # test_db.add_contact('test1', 'test3')
-    # test_db.add_contact('test1', 'test6')
-    # # test_db.remove_contact('test1', 'test3')
-    # test_db.process_message('McG2', '1111')
-    # # print(test_db.message_history())
+    # print(test_db.active_users_list())
+    test_db.user_logout('McG2')
+    # print(test_db.login_history('re'))
+    test_db.add_contact('test2', 'test1')
+    test_db.add_contact('test1', 'test3')
+    test_db.add_contact('test1', 'test6')
+    # test_db.remove_contact('test1', 'test3')
+    test_db.process_message('McG2', '1111')
+    # print(test_db.message_history())

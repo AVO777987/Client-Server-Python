@@ -1,10 +1,16 @@
 import argparse
+import configparser
+import os
+import sys
 from socket import socket, AF_INET, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
 import logging
 import select
 from utils import get_msg, send_msg
 from settings import DEFAULT_SERVER_LISTEN_IP, DEFAULT_SERVER_LISTEN_PORT, ENCODING, MAX_PACKAGE_LENGTH
 import threading
+from PyQt5.QtWidgets import QApplication, QMessageBox
+from PyQt5.QtCore import QTimer
+from server_gui import MainWindow, gui_create_model, HistoryWindow, create_stat_model, ConfigWindow
 from metaclasses import ServerVerifier
 from descrptrs import Port
 from server_database import ServerDB
@@ -12,16 +18,18 @@ from log_decorator import log
 import logs.config_server_log
 
 SERVER_LOGGER = logging.getLogger('server')
+new_connection = False
+conflag_lock = threading.Lock()
 
 
-def args_parser():
+def args_parser(default_port, default_address):
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port', '-p', help='Listen port', default=DEFAULT_SERVER_LISTEN_PORT)
-    parser.add_argument('--addr', '-a', help='Listen IP', default=DEFAULT_SERVER_LISTEN_IP)
+    parser.add_argument('--port', '-p', help='Listen port', default=default_port)
+    parser.add_argument('--addr', '-a', help='Listen IP', default=default_address)
     args = parser.parse_args()
     listen_address = args.addr
     listen_port = args.port
-    return listen_address, listen_port
+    return listen_port, listen_address
 
 
 class Server(threading.Thread, metaclass=ServerVerifier):
@@ -92,7 +100,7 @@ class Server(threading.Thread, metaclass=ServerVerifier):
             self.message_list.clear()
 
     def create_response(self, message, client_sock):
-        print(message)
+        global new_connection
         if message.get('action') == 'presence':
             if message.get('user') not in self.names.keys():
                 self.names[message.get('user')] = client_sock
@@ -103,6 +111,8 @@ class Server(threading.Thread, metaclass=ServerVerifier):
                 client_ip, client_port = client_sock.getpeername()
                 self.database.user_login(message.get('user'), client_ip, client_port)
                 send_msg(response, client_sock)
+                with conflag_lock:
+                    new_connection = True
             else:
                 response = {
                     'response': 400,
@@ -112,12 +122,16 @@ class Server(threading.Thread, metaclass=ServerVerifier):
             return
         elif message.get('action') == 'message':
             self.message_list.append(message)
+            self.database.process_message(
+                message.get('user'), message.get('destination'))
             return
         elif message.get('action') == 'exit':
             self.database.user_logout(message.get('user'))
             self.clients.remove(self.names[message.get('user')])
             self.names[message.get('user')].close()
             del self.names[message.get('user')]
+            with conflag_lock:
+                new_connection = True
             return
         elif message.get('action') == 'get_contacts':
             contact_list = self.database.get_contacts(message.get('user'))
@@ -172,31 +186,102 @@ def print_help():
 
 
 def main():
-    listen_address, listen_port = args_parser()
-    database = ServerDB()
+    config = configparser.ConfigParser()
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    config.read(f"{dir_path}/{'server.ini'}")
+    listen_port, listen_address = args_parser(
+        config['SETTINGS']['Default_port'], config['SETTINGS']['Listen_Address'])
+    # listen_address, listen_port = args_parser()
+    listen_port = int(listen_port)
+    database = ServerDB(
+        os.path.join(
+            config['SETTINGS']['Database_path'],
+            config['SETTINGS']['Database_file']))
+    # database = ServerDB()
+    print(os.path.join(config['SETTINGS']['Database_path'], config['SETTINGS']['Database_file']))
     server = Server(listen_address, listen_port, database)
     server.daemon = True
     server.start()
-    print_help()
-    while True:
-        command = input('Введите команду: ')
-        if command == 'help':
-            print_help()
-        elif command == 'exit':
-            break
-        elif command == 'users':
-            for user in sorted(database.users_list()):
-                print(f'Пользователь {user[0]}, последний вход: {user[1]}')
-        elif command == 'connected':
-            for user in sorted(database.active_users_list()):
-                print(f'Пользователь {user[0]}, подключен: {user[1]}:{user[2]}, время установки соединения: {user[3]}')
-        elif command == 'loghist':
-            name = input('Введите имя пользователя для просмотра истории. '
-                         'Для вывода всей истории, просто нажмите Enter: ')
-            for user in sorted(database.login_history(name)):
-                print(f'Пользователь: {user[0]} время входа: {user[1]}. Вход с: {user[2]}:{user[3]}')
+
+    # Создаём графическое окружение для сервера:
+    server_app = QApplication(sys.argv)
+    main_window = MainWindow()
+
+    # Инициализируем параметры в окна
+    main_window.statusBar().showMessage('Server Working')
+    main_window.active_clients_table.setModel(gui_create_model(database))
+    main_window.active_clients_table.resizeColumnsToContents()
+    main_window.active_clients_table.resizeRowsToContents()
+
+    # Функция, обновляющая список подключённых, проверяет флаг подключения, и
+    # если надо обновляет список
+    def list_update():
+        global new_connection
+        if new_connection:
+            main_window.active_clients_table.setModel(
+                gui_create_model(database))
+            main_window.active_clients_table.resizeColumnsToContents()
+            main_window.active_clients_table.resizeRowsToContents()
+            with conflag_lock:
+                new_connection = False
+
+    # Функция, создающая окно со статистикой клиентов
+    def show_statistics():
+        global stat_window
+        stat_window = HistoryWindow()
+        stat_window.history_table.setModel(create_stat_model(database))
+        stat_window.history_table.resizeColumnsToContents()
+        stat_window.history_table.resizeRowsToContents()
+        stat_window.show()
+
+    # Функция создающяя окно с настройками сервера.
+    def server_config():
+        global config_window
+        # Создаём окно и заносим в него текущие параметры
+        config_window = ConfigWindow()
+        config_window.db_path.insert(config['SETTINGS']['Database_path'])
+        config_window.db_file.insert(config['SETTINGS']['Database_file'])
+        config_window.port.insert(config['SETTINGS']['Default_port'])
+        config_window.ip.insert(config['SETTINGS']['Listen_Address'])
+        config_window.save_btn.clicked.connect(save_server_config)
+
+    # Функция сохранения настроек
+    def save_server_config():
+        global config_window
+        message = QMessageBox()
+        config['SETTINGS']['Database_path'] = config_window.db_path.text()
+        config['SETTINGS']['Database_file'] = config_window.db_file.text()
+        try:
+            port = int(config_window.port.text())
+        except ValueError:
+            message.warning(config_window, 'Ошибка', 'Порт должен быть числом')
         else:
-            print('Команда не распознана.')
+            config['SETTINGS']['Listen_Address'] = config_window.ip.text()
+            if 1023 < port < 65536:
+                config['SETTINGS']['Default_port'] = str(port)
+                print(port)
+                with open('server.ini', 'w') as conf:
+                    config.write(conf)
+                    message.information(
+                        config_window, 'OK', 'Настройки успешно сохранены!')
+            else:
+                message.warning(
+                    config_window,
+                    'Ошибка',
+                    'Порт должен быть от 1024 до 65536')
+
+    # Таймер, обновляющий список клиентов 1 раз в секунду
+    timer = QTimer()
+    timer.timeout.connect(list_update)
+    timer.start(1000)
+
+    # Связываем кнопки с процедурами
+    main_window.refresh_button.triggered.connect(list_update)
+    main_window.show_history_button.triggered.connect(show_statistics)
+    main_window.config_btn.triggered.connect(server_config)
+
+    # Запускаем GUI
+    server_app.exec_()
 
 
 if __name__ == '__main__':

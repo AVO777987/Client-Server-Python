@@ -13,7 +13,7 @@ while True:
     elif ACTION == 's':
         # PROCESS.append(subprocess.Popen('python server.py',
         #                                 creationflags=subprocess.CREATE_NEW_CONSOLE))
-        for i in range(4):
+        for i in range(2):
             PROCESS.append(subprocess.Popen(f'python client.py -n test{i}',
                                             creationflags=subprocess.CREATE_NEW_CONSOLE))
     elif ACTION == 'x':
